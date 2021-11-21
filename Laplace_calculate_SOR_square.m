@@ -1,0 +1,11 @@
+[V]=Initialise_V_SOR_square;
+loops=1;
+[V,delta_V_total]=Update_V_SOR_square(V);
+while(delta_V_total>49e-5*size(V,2)^2 |loops<10);
+  loops=loops+1;
+  [V,delta_V_total]=Update_V_SOR_square(V);
+  mesh(V);
+  title('Potential Surface');
+  drawnow;
+  pause(1);
+end;
